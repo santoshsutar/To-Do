@@ -4,10 +4,12 @@ export class Model {
     constructor() {
         this.user = "Santosh";
         this.items=this.getTodoItems();
+     if (this.items==null) {
+         this.items=new Array<TodoItem>();         
+     }
     }
     public getTodoItems(): TodoItem[] {
         let data = localStorage.getItem("todos");
-        //console.log(data);
         
         if (data != null) {
             return JSON.parse(data) as TodoItem[];
